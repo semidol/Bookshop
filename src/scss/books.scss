@@ -1,0 +1,221 @@
+.books-section {
+    padding: 45px 0 74px;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.genres {
+    position: relative;
+    padding-right: 10px;
+    &__bg {
+        width: 416px;
+        height: 710px;
+        position: absolute;
+        background-color: $menu-color;
+        top: -45px;
+        left: -158px;
+        z-index: 0;
+    }
+
+    &__item {
+        cursor: pointer;
+        position: relative;
+        margin-bottom: 23px;
+        font-size: 12px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: $base-black;
+        }
+
+        &_active {
+            color: $base-black;
+            font-size: 16px;
+            font-weight: 700;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background-color: $active-genre-dot-color;
+                left: -14px;
+                top: 7px;
+            }
+        }
+    }
+}
+
+.books {
+    flex-grow: 1;
+    &__wrapper {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 924px;
+        justify-content: space-between; 
+    }
+     
+    &__item {
+        display: flex;
+        margin-bottom: 96px;
+        justify-content: space-between;
+        min-width: 46%;
+    }
+
+    &__img {
+        align-self: center;
+        width: 212px;
+        box-shadow: 0px 24px 36px 0px rgba(53, 49, 84, 0.28);
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__desc {
+        padding: 40px 10px 0;
+        max-width: 196px;
+        min-width: 176px;
+    }
+
+    &__author {
+        font-family: Open Sans;
+        font-size: 10px;
+        margin-bottom: 4px;
+    }
+
+    &__title {
+        font-size: 16px;
+        color: $base-black;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    &__rating {
+        display: flex;
+        margin-bottom: 17px;
+        align-items: center;
+    }
+
+    &__rating-star {
+        margin-right: 6px;
+    }
+
+    &__rating-count {
+        margin-top: 2px;
+        font-family: Open Sans;
+        font-size: 10px;
+    }
+
+    &__text {
+        font-family: Open Sans;
+        font-size: 10px;
+        margin-bottom: 16px;
+    }
+
+    &__price {
+        margin-bottom: 16px;
+        font-size: 13px;
+        color: $base-black;
+        font-weight: 700;
+    }
+
+    &__btn {
+        @include btn();
+        width: 100%;
+        &_in-cart {
+            color: $base-gray;
+            border: 1px solid $base-gray; 
+        }
+        &_disable {
+            color: $base-gray;
+            border: 1px solid $base-gray;
+            cursor: auto;
+            &:hover {
+                transform: scale(1);
+            }
+        }
+    }
+
+    &__btn-more {
+        @include btn();
+        width: 176px;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.loader {
+    margin: 0 auto;
+    width: 48px;
+    height: 48px;
+    border: 5px solid $menu-color;
+    border-bottom-color: $active-dot-color;
+    border-radius: 50%;
+    display: block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+.loader-wrapper {
+    display: none;
+    padding-bottom: 500px
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+
+@media (max-width: 1023px) {
+    .books-section {
+        &__wrapper {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    
+    .genres {
+        padding-right: 0;
+        margin-bottom: 40px;
+        &__bg {
+            display: none;
+        }
+        &__list {
+            margin: 0 auto;
+            max-width: 800px;
+            gap: 50px;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: $menu-color;
+        }
+
+        &__item {
+            margin-bottom: 0;
+        }
+    }
+
+    .books {
+        &__wrapper {
+            justify-content: center; 
+        }
+    }
+}
+
+@media (max-width: 413px) {
+    .books {         
+        &__item {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}

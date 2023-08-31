@@ -1,0 +1,24 @@
+$main-font: Montserrat, sans-serif;
+$item-font: 'Open Sans';
+$base-black: #1C2A39;
+$base-gray: #5C6A79;
+$menu-color: #EFEEF6;
+$active-dot-color: #9E98DC;
+$active-genre-dot-color: #756AD3;
+$btn-color: #4C3DB2;
+$counter-color: #FF353A;
+
+@mixin btn() {
+    cursor: pointer;
+    height: 45px;
+    color: $btn-color;
+    border: 1px solid $btn-color;
+    text-transform: uppercase;
+    background-color: transparent;
+    font-size: 8px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    &:hover {
+        transform: scale(1.03);
+    }
+}
